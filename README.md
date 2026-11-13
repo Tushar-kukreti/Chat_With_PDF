@@ -3,7 +3,7 @@
 A **Retrieval-Augmented Generation (RAG)** application that lets you upload PDFs and ask questions about their content using natural language.
 
 ## How It Works
-
+ 
 **Step 1 — Upload:** User uploads a PDF via the Next.js frontend → Express.js saves it with Multer → pushes a background job to BullMQ (Redis queue) → responds immediately (non-blocking).
 
 **Step 2 — Ingest (background):** Worker picks up the job → PDFLoader extracts text page-by-page → Gemini embedding model (`gemini-embedding-001`) converts each page into a vector → stored in Qdrant vector database.
